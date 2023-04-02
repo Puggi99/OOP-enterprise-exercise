@@ -27,7 +27,7 @@ class Employee extends Person {
     }
     numberOfClients() {
         let count = 0;
-        for (let i = 0; i <= this.clients.length; i++) {
+        for (let i = 0; i < this.clients.length; i++) {
             const element = this.clients[i];
             count++
         }

@@ -33,7 +33,7 @@ const client7 = new Client('Aurora', 'Bozzano', 'Via Fabbriche 18/1', [order3])
 
 const employee1 = new Employee('Simona', 'Postelnicu', [client5, client3, client1])
 const employee2 = new Employee('Angelica', 'Cistaro', [client1, client2, client6])
-
+console.log(employee1.numberOfClients())
 
 const employee3 = new Employee('Mirko', 'Puppo', [client1])
 

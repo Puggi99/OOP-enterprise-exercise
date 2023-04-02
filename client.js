@@ -1,6 +1,6 @@
 class Client extends Person {
     constructor(name, surname, address, orders) {
-        super(name, surname);
+        super(name, surname, );
         this.address = address;
         this.orders = orders;
     }
