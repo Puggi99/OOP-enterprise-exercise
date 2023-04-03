@@ -22,18 +22,18 @@ const client6 = new Client('Davide', 'Bartolozzi', 'Via Ragequit 4/10', [order1,
 
 
 const client7 = new Client('Aurora', 'Bozzano', 'Via Fabbriche 18/1', [order3])
-// console.log(client2.toString())
-// console.log(client2)
-// console.log(client3)
-// console.log(client4)
-// console.log(client5)
+console.log(client2.toString())
+console.log(client2)
+console.log(client3)
+console.log(client4)
+console.log(client5)
 
 
 // IMPIEGATI
 
 const employee1 = new Employee('Simona', 'Postelnicu', [client5, client3, client1])
 const employee2 = new Employee('Angelica', 'Cistaro', [client1, client2, client6])
-console.log(employee1.numberOfClients())
+console.log(employee1.toString())
 
 const employee3 = new Employee('Mirko', 'Puppo', [client1])
 
@@ -48,6 +48,7 @@ const employee3 = new Employee('Mirko', 'Puppo', [client1])
 
 
 // MANAGER
+
 const manager = new Manager('Daniele', 'Puggioni', [employee1, employee2])
 
 // console.log(manager.allEarnings())
@@ -55,3 +56,44 @@ const manager = new Manager('Daniele', 'Puggioni', [employee1, employee2])
 // console.log(manager.totalEmployee())
 // manager.fire(employee1)
 // console.log(manager.totalEmployee())
+
+
+// __________________________________________________________________________________________________________________
+
+const numbers = [3,4,5,9];
+
+console.log(Utility.filter(numbers, (element) => element > 3))              // LAMBDA
+
+function multiplyBy3(element){
+    return element * 3; 
+}
+
+console.log(Utility.map(numbers,multiplyBy3))
+
+console.log(Utility.map(numbers,((element)=> element *3)))                  // LAMBDA
+console.log(Utility.map(numbers, function(element){return element*3}))      // FUNZIONE ANONIMA
+
+
+function sum(number1,number2){
+    return number1 + number2;
+}
+
+console.log(Utility.reduce(numbers, sum, 0))
+
+
+// usare la reduce come se fosse una filter:(PORCATA!)
+console.log(Utility.reduce((numbers, (accumulator,current)=>{
+    if(current % 2 === 0){
+        accumulator.push(current);
+    }
+    return accumulator;
+    }
+   )
+  )
+)
+// usare la reduce come se fosse una map: (PORCATA!)
+
+console.log(Utility.reduce((numbers,accumulator,current) =>{
+    const newCurrent = current*3;
+    accumulator.push(newCurrent)
+}))

@@ -1,11 +1,11 @@
 class Client extends Person {
-    constructor(name, surname, address, orders) {
-        super(name, surname, );
+    constructor(name, surname, address, orders = []) {
+        super(name, surname);
         this.address = address;
         this.orders = orders;
     }
-    addOrder(text) {
-        this.orders.push(text)
+    addOrder(newOrder) {
+        this.orders.push(newOrder)
     }
     sumOfOrder() {
         let sumOrders = 0;
@@ -15,8 +15,26 @@ class Client extends Person {
         }
         return sumOrders;
     }
+
+    sumOfOrder2(){
+        return this.orders.reduce((previous,current)=>{
+            previous+= current.getTotalPrice();
+            return previous;
+        }
+        )
+    }
     toString() {
-        return super.toString() + `INDIRIZZO: ${this.address}\nORDINI: \n${this.orders}`
+        let description = super.toString() + 
+        `INDIRIZZO: ${this.address}\n` +
+        `ORDINI: \n${this.orders.length}\n` +
+        `SPESA TOTALE:  ${this.sumOfOrder().toFixed(2)}€\n` +
+        `LISTA ORDINI:\n` 
+        for (let i = 0; i < this.orders.length; i++) {
+            const orders = this.orders[i];
+            description += '-----------------------\n'
+            description += orders.toString()
+        }return description
+       
 
     }
 }

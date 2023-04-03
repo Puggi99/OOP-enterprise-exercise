@@ -4,11 +4,16 @@ class Employee extends Person {
         this.clients = clients;
     }
 
-    addClient(text) {
-        this.clients.push(text)
+    addClient(newClient) {
+        this.clients.push(newClient)
     }
-    removeClient(text) {
-        this.clients.pop(text)
+    removeClient(exClient) {
+        // this.clients.pop(client)
+        for (let i = 0; i < this.clients.length; i++) {
+            if(exClient === this.clients[i]) {
+                this.clients.splice(i,1);
+            }           
+        }
     }
     bestClient() {
         const clients = this.clients;
@@ -25,14 +30,14 @@ class Employee extends Person {
         }
         return bestClient
     }
-    numberOfClients() {
-        let count = 0;
-        for (let i = 0; i < this.clients.length; i++) {
-            const element = this.clients[i];
-            count++
-        }
-        return count;
-    }
+    // numberOfClients() {
+    //     let count = 0;
+    //     for (let i = 0; i < this.clients.length; i++) {
+    //         const element = this.clients[i];
+    //         count++
+    //     }
+    //     return count;
+    // }
 
     sumOfEarnings() {
         let sumEarnings = 0;
@@ -44,8 +49,8 @@ class Employee extends Person {
         return sumEarnings;
     }
     toString() {
-        return super.toString() + `NUMERO DI CLIENTI: ${this.numberOfClients()}\nMIGLIOR CLIENTE: ${this.bestClient().name} ${this.bestClient().surname}`
+        return super.toString() + `NUMERO DI CLIENTI: ${this.clients.length}\nGUADAGNO TOTALE: ${this.sumOfEarnings().toFixed(2
+            )}\nMIGLIOR CLIENTE: ${this.bestClient().name} ${this.bestClient().surname}`
     }
 }
 
-// NUMERO DI CLIENTI: ${this.numberOfClients}\nMIGLIOR CLIENTE: ${this.bestClient}

@@ -10,6 +10,6 @@ class Order {
     }
 
     toString() {
-        return `PRODOTTO: ${this.product}\nQUANTITA': ${this.quantity}\nPREZZO: ${this.unityprice}\nTOTALE ORDINE: ${this.getTotalPrice()}\n`
+        return `PRODOTTO: ${this.product}\nQUANTITA': ${this.quantity}\nPREZZO: ${this.unityprice.toFixed(2)}\nTOTALE ORDINE: ${this.getTotalPrice().toFixed(2)}\n`
     }
 }
